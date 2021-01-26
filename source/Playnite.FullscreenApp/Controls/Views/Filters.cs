@@ -16,6 +16,7 @@ using System.Windows.Data;
 namespace Playnite.FullscreenApp.Controls.Views
 {
     [TemplatePart(Name = "PART_ButtonClear", Type = typeof(ButtonBase))]
+    [TemplatePart(Name = "PART_ToggleMissingArtwork", Type = typeof(ToggleButton))]
     [TemplatePart(Name = "PART_ToggleInstalled", Type = typeof(ToggleButton))]
     [TemplatePart(Name = "PART_ToggleUninstalled", Type = typeof(ToggleButton))]
     [TemplatePart(Name = "PART_ToggleFavorite", Type = typeof(ToggleButton))]
@@ -30,6 +31,7 @@ namespace Playnite.FullscreenApp.Controls.Views
     {
         private FullscreenAppViewModel mainModel;
         private ButtonBase ButtonClear;
+        private ToggleButton ToggleMissingArtwork;
         private ToggleButton ToggleInstalled;
         private ToggleButton ToggleUninstalled;
         private ToggleButton ToggleFavorite;
@@ -78,6 +80,7 @@ namespace Playnite.FullscreenApp.Controls.Views
                          nameof(mainModel.FilterPanelVisible));
                 }
 
+                AssignBoolFilter(ref ToggleMissingArtwork, "PART_ToggleMissingArtwork", nameof(FilterSettings.IsMissingArtwork));
                 AssignBoolFilter(ref ToggleInstalled, "PART_ToggleInstalled", nameof(FilterSettings.IsInstalled));
                 AssignBoolFilter(ref ToggleUninstalled, "PART_ToggleUninstalled", nameof(FilterSettings.IsUnInstalled));
                 AssignBoolFilter(ref ToggleFavorite, "PART_ToggleFavorite", nameof(FilterSettings.Favorite));

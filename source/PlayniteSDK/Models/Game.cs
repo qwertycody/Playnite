@@ -684,6 +684,21 @@ namespace Playnite.SDK.Models
             }
         }
 
+        private bool isMissingArtwork;
+        /// <summary>
+        /// Gets or sets value indicating wheter a game is missing artwork.
+        /// </summary>
+        public bool IsMissingArtwork
+        {
+            get => isMissingArtwork;
+            set
+            {
+                isMissingArtwork = value;
+                OnPropertyChanged();
+                OnPropertyChanged(nameof(ArtworkStatus));
+            }
+        }
+
         private bool isInstalled;
         /// <summary>
         /// Gets or sets value indicating wheter a game is installed.
@@ -1324,6 +1339,15 @@ namespace Playnite.SDK.Models
         public bool IsCustomGame
         {
             get => PluginId == Guid.Empty;
+        }
+
+        /// <summary>
+        /// Gets game installation state.
+        /// </summary>
+        [JsonIgnore]
+        public ArtworkStatus ArtworkStatus
+        {
+            get => IsMissingArtwork ? ArtworkStatus.NotMissingArtwork : ArtworkStatus.MissingArtwork;
         }
 
         /// <summary>

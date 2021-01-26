@@ -461,6 +461,25 @@ namespace Playnite
             }
         }
 
+        private bool isMissingArtwork;
+        public bool IsMissingArtwork
+        {
+            get
+            {
+                return isMissingArtwork;
+            }
+
+            set
+            {
+                if (isMissingArtwork != value)
+                {
+                    isMissingArtwork = value;
+                    OnPropertyChanged();
+                    OnFilterChanged(nameof(IsMissingArtwork));
+                }
+            }
+        }
+
         private bool isInstalled;
         public bool IsInstalled
         {

@@ -162,6 +162,14 @@ namespace Playnite
                 }
             }
 
+            if(filterSettings.IsMissingArtwork)
+            {
+                if(game.BackgroundImage == null || game.CoverImage == null || game.GameImagePath == null)
+                {
+                    return true;
+                }
+            }
+
             // ------------------ Installed
             bool installedResult = false;
             if ((filterSettings.IsInstalled && filterSettings.IsUnInstalled) ||

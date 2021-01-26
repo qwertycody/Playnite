@@ -16,6 +16,10 @@
                                   BorderThickness="2"
                                   x:Name="PART_ButtonClear"/>
 
+                        <CheckBoxEx Content="{DynamicResource LOCGameIsMissingArtworkTitle}"
+                                    Margin="{StaticResource ItemMargin}"
+                                    x:Name="PART_ToggleMissingArtwork" />
+
                         <CheckBoxEx Content="{DynamicResource LOCGameIsInstalledTitle}"
                                     Margin="{StaticResource ItemMargin}"
                                     x:Name="PART_ToggleInstalled" />

@@ -19,6 +19,7 @@ namespace Playnite.DesktopApp.Controls.Views
 {
     [TemplatePart(Name = "PART_ButtonClear", Type = typeof(ButtonBase))]
     [TemplatePart(Name = "PART_ButtonClose", Type = typeof(ButtonBase))]
+    [TemplatePart(Name = "PART_ToggleMissingArtwork", Type = typeof(ToggleButton))]
     [TemplatePart(Name = "PART_ToggleInstalled", Type = typeof(ToggleButton))]
     [TemplatePart(Name = "PART_ToggleUnInstalled", Type = typeof(ToggleButton))]
     [TemplatePart(Name = "PART_ToggleHidden", Type = typeof(ToggleButton))]
@@ -78,6 +79,7 @@ namespace Playnite.DesktopApp.Controls.Views
         private readonly DesktopAppViewModel mainModel;
         private ButtonBase ButtonClear;
         private ButtonBase ButtonClose;
+        private ToggleButton ToggleMissingArtwork;
         private ToggleButton ToggleInstalled;
         private ToggleButton ToggleUnInstalled;
         private ToggleButton ToggleHidden;
@@ -171,6 +173,8 @@ namespace Playnite.DesktopApp.Controls.Views
             {
                 ButtonClose.Command = mainModel.CloseFilterPanelCommand;
             }
+
+            SetToggleFilter(ref ToggleMissingArtwork, "PART_ToggleMissingArtwork", nameof(FilterSettings.IsMissingArtwork));
 
             SetToggleFilter(ref ToggleInstalled, "PART_ToggleInstalled", nameof(FilterSettings.IsInstalled));
             SetToggleFilter(ref ToggleUnInstalled, "PART_ToggleUnInstalled", nameof(FilterSettings.IsUnInstalled));
